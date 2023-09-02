@@ -1,0 +1,1 @@
+Este projeto é uma calculadora para você estimar os seus gastos mensais e se planejar financeiramente para seu primeiro cafofinho.

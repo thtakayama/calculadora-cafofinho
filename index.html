@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Cafofinho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main>
-      <h1>Calculadora Cafofinho</h1>
+      <h1 class="title">Calculadora Cafofinho</h1>
       <p>
         Coloque abaixo os seus gastos mensais para estimar seus gastos e se
         planejar financeiramente antes de sair das casa dos pais.
       </p>
       <section id="moradia" class="categoria">
-        <h2>Moradia:</h2>
+        <h2 class="subtitle">Moradia:</h2>
         <p>
           Gastos relacionados a moradia como aluguel/financiamento, IPTU, água,
           luz, gás e internet.
@@ -48,6 +54,7 @@
             <label for="internet">Internet</label>
             <input type="text" id="internet" name="internet" value="0,00" />
           </div>
+          <button class="btn" data-bg="roxa">Calcular</button>
         </form>
       </section>
     </main>

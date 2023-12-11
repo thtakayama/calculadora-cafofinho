@@ -3,8 +3,8 @@
   --cor-rosa: #ef2f88;
   --cor-laranja: #f47340;
   --cor-amarela: #f9d371;
-  --cor-azul: #12fff7;
-  --cor-verde: #b3ffab;
+  --cor-azul-claro: #12fff7;
+  --cor-verde-claro: #b3ffab;
 }
 
 * {
@@ -79,6 +79,10 @@ label {
   color: var(--cor-roxa);
 }
 
+#moradia label {
+  color: var(--cor-roxa);
+}
+
 .categoria input {
   display: block;
   width: 100%;
@@ -87,6 +91,12 @@ label {
   border: 3px solid var(--cor-roxa);
   border-radius: 0.2rem;
   font-size: 1.125rem;
+  transition: 0.4s;
+}
+
+.categoria input:focus {
+  outline: none !important;
+  border: 3px solid white;
 }
 
 .btn {

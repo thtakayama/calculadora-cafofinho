@@ -2,7 +2,17 @@
 
 const btnMoradia = document.querySelector("#moradia .btn");
 let valoresMoradia = document.querySelectorAll("#moradia .campo input");
-let totalMoradia = document.querySelector("#moradia h1.total");
+let totalMoradia = document.querySelector("#moradia h1.total-moradia");
+
+const btnAlimentacao = document.querySelector("#alimentacao .btn");
+let valoresAlimentacao = document.querySelectorAll("#alimentacao .campo input");
+let totalAlimentacao = document.querySelector(
+  "#alimentacao h1.total-alimentacao"
+);
+
+const btnSaude = document.querySelector("#saude .btn");
+let valoresSaude = document.querySelectorAll("#saude .campo input");
+let totalSaude = document.querySelector("#saude h1.total-saude");
 
 const listar = (lista) => {
   let valores = [];
@@ -32,3 +42,7 @@ const calcular = (btn, listaValores, resultado) => {
 
 //Calculaar categoria Moradia
 calcular(btnMoradia, valoresMoradia, totalMoradia);
+//Calculaar categoria Alimentação
+calcular(btnAlimentacao, valoresAlimentacao, totalAlimentacao);
+//Calculaar categoria Saúde
+calcular(btnSaude, valoresSaude, totalSaude);

@@ -3,6 +3,8 @@
   --cor-rosa: #ef2f88;
   --cor-laranja: #f47340;
   --cor-amarela: #f9d371;
+  --cor-azul: #00a6f1;
+  --cor-verde: #3ccb4b;
   --cor-azul-claro: #12fff7;
   --cor-verde-claro: #b3ffab;
 }
@@ -20,6 +22,16 @@ body {
 
 [data-bg="roxa"] {
   background: var(--cor-roxa);
+  color: white;
+}
+
+[data-bg="laranja"] {
+  background: var(--cor-laranja);
+  color: white;
+}
+
+[data-bg="verde"] {
+  background: var(--cor-verde);
   color: white;
 }
 
@@ -49,7 +61,7 @@ p {
 
 .categoria {
   max-width: 980px;
-  margin: 0px auto;
+  margin: 0px auto 4rem auto;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.1);
@@ -75,20 +87,12 @@ label {
   font-weight: 700;
 }
 
-#moradia .subtitle {
-  color: var(--cor-roxa);
-}
-
-#moradia label {
-  color: var(--cor-roxa);
-}
-
 .categoria input {
   display: block;
   width: 100%;
   background: transparent;
   padding: 0.2rem 0.5rem;
-  border: 3px solid var(--cor-roxa);
+  border: 3px solid;
   border-radius: 0.2rem;
   font-size: 1.125rem;
   transition: 0.4s;
@@ -118,4 +122,40 @@ label {
   background: white;
   color: currentColor;
   box-shadow: 0px 0px 0px 0px;
+}
+
+#moradia .subtitle {
+  color: var(--cor-roxa);
+}
+
+#moradia label {
+  color: var(--cor-roxa);
+}
+
+#moradia input {
+  border-color: var(--cor-roxa);
+}
+
+#alimentacao .subtitle {
+  color: var(--cor-laranja);
+}
+
+#alimentacao label {
+  color: var(--cor-laranja);
+}
+
+#alimentacao input {
+  border-color: var(--cor-laranja);
+}
+
+#saude .subtitle {
+  color: var(--cor-verde);
+}
+
+#saude label {
+  color: var(--cor-verde);
+}
+
+#saude input {
+  border-color: var(--cor-verde);
 }

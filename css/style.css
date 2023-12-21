@@ -3,7 +3,7 @@
   --cor-rosa: #ef2f88;
   --cor-laranja: #f47340;
   --cor-amarela: #f9d371;
-  --cor-azul: #00a6f1;
+  --cor-azul: #0297e2;
   --cor-verde: #3ccb4b;
   --cor-azul-claro: #12fff7;
   --cor-verde-claro: #b3ffab;
@@ -32,6 +32,11 @@ body {
 
 [data-bg="verde"] {
   background: var(--cor-verde);
+  color: white;
+}
+
+[data-bg="azul"] {
+  background: var(--cor-azul);
   color: white;
 }
 
@@ -158,4 +163,16 @@ label {
 
 #saude input {
   border-color: var(--cor-verde);
+}
+
+#transporte .subtitle {
+  color: var(--cor-azul);
+}
+
+#transporte label {
+  color: var(--cor-azul);
+}
+
+#transporte input {
+  border-color: var(--cor-azul);
 }

@@ -14,6 +14,10 @@ const btnSaude = document.querySelector("#saude .btn");
 let valoresSaude = document.querySelectorAll("#saude .campo input");
 let totalSaude = document.querySelector("#saude h1.total-saude");
 
+const btnTransporte = document.querySelector("#transporte .btn");
+let valoresTransporte = document.querySelectorAll("#transporte .campo input");
+let totalTransporte = document.querySelector("#transporte h1.total-transporte");
+
 const listar = (lista) => {
   let valores = [];
   lista.forEach((item) => {
@@ -40,9 +44,11 @@ const calcular = (btn, listaValores, resultado) => {
   });
 };
 
-//Calculaar categoria Moradia
+//Calcular categoria Moradia
 calcular(btnMoradia, valoresMoradia, totalMoradia);
-//Calculaar categoria Alimentação
+//Calcular categoria Alimentação
 calcular(btnAlimentacao, valoresAlimentacao, totalAlimentacao);
-//Calculaar categoria Saúde
+//Calcular categoria Saúde
 calcular(btnSaude, valoresSaude, totalSaude);
+//Calcular categoria Transporte
+calcular(btnTransporte, valoresTransporte, totalTransporte);

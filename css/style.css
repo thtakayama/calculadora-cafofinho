@@ -40,6 +40,11 @@ body {
   color: white;
 }
 
+[data-bg="amarelo"] {
+  background: var(--cor-amarela);
+  color: white;
+}
+
 h1,
 h2,
 h3,
@@ -175,4 +180,16 @@ label {
 
 #transporte input {
   border-color: var(--cor-azul);
+}
+
+#lazer .subtitle {
+  color: var(--cor-amarela);
+}
+
+#lazer label {
+  color: var(--cor-amarela);
+}
+
+#lazer input {
+  border-color: var(--cor-amarela);
 }

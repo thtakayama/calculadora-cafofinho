@@ -22,6 +22,16 @@ const btnLazer = document.querySelector("#lazer .btn");
 let valoresLazer = document.querySelectorAll("#lazer .campo input");
 let totalLazer = document.querySelector("#lazer h1.total-lazer");
 
+const btnAssinaturas = document.querySelector("#assinaturas .btn");
+let valoresAssinaturas = document.querySelectorAll("#assinaturas .campo input");
+let totalAssinaturas = document.querySelector(
+  "#assinaturas h1.total-assinaturas"
+);
+
+const btnPet = document.querySelector("#pet .btn");
+let valoresPet = document.querySelectorAll("#pet .campo input");
+let totalPet = document.querySelector("#pet h1.total-pet");
+
 const listar = (lista) => {
   let valores = [];
   lista.forEach((item) => {
@@ -58,3 +68,7 @@ calcular(btnSaude, valoresSaude, totalSaude);
 calcular(btnTransporte, valoresTransporte, totalTransporte);
 //Calcular categoria Lazer
 calcular(btnLazer, valoresLazer, totalLazer);
+//Calcular categoria Assinaturas
+calcular(btnAssinaturas, valoresAssinaturas, totalAssinaturas);
+//Calcular categoria Pet
+calcular(btnPet, valoresPet, totalPet);

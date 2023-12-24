@@ -3,6 +3,7 @@
   --cor-rosa: #ef2f88;
   --cor-laranja: #f47340;
   --cor-amarela: #f9d371;
+  --cor-lilas: #e143f2;
   --cor-azul: #0297e2;
   --cor-verde: #3ccb4b;
   --cor-azul-claro: #12fff7;
@@ -42,6 +43,16 @@ body {
 
 [data-bg="amarelo"] {
   background: var(--cor-amarela);
+  color: white;
+}
+
+[data-bg="lilas"] {
+  background: var(--cor-lilas);
+  color: white;
+}
+
+[data-bg="rosa"] {
+  background: var(--cor-rosa);
   color: white;
 }
 
@@ -192,4 +203,28 @@ label {
 
 #lazer input {
   border-color: var(--cor-amarela);
+}
+
+#assinaturas .subtitle {
+  color: var(--cor-lilas);
+}
+
+#assinaturas label {
+  color: var(--cor-lilas);
+}
+
+#assinaturas input {
+  border-color: var(--cor-lilas);
+}
+
+#pet .subtitle {
+  color: var(--cor-rosa);
+}
+
+#pet label {
+  color: var(--cor-rosa);
+}
+
+#pet input {
+  border-color: var(--cor-rosa);
 }

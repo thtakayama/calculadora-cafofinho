@@ -56,6 +56,11 @@ body {
   color: white;
 }
 
+[data-container="grafico"] {
+  max-width: 600px;
+  margin: 0px auto;
+}
+
 h1,
 h2,
 h3,

@@ -72,3 +72,109 @@ calcular(btnLazer, valoresLazer, totalLazer);
 calcular(btnAssinaturas, valoresAssinaturas, totalAssinaturas);
 //Calcular categoria Pet
 calcular(btnPet, valoresPet, totalPet);
+
+const ctx = document.getElementById("myChart");
+const dataMoradia = {
+  labels: [
+    "Aluguel/Financiamento",
+    "IPTU",
+    "Condomínio",
+    "Conta de Água",
+    "Conta de Luz",
+    "Conta de Gás",
+    "Conta da Internet",
+  ],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 100, 40, 25, 10, 240],
+      backgroundColor: [
+        "#0b00cc",
+        "#6304e8",
+        "#8843f2",
+        "#a069f5",
+        "#bd97f7",
+        "#d7c1f9",
+        "#f0e6fd",
+      ],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataAlimentacao = {
+  labels: ["Mercado", "Restaurante", "Delivery"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 100],
+      backgroundColor: ["#f47340", "#f8ab8f", "#f9e9e6"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataSaude = {
+  labels: ["Farmácia", "Consultas Médicas", "Plano de Saúde"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 100],
+      backgroundColor: ["#3ccb4a", "#99e19a", "#e6f8e6"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataTransporte = {
+  labels: ["Gasolina", "Público", "Uber"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 100],
+      backgroundColor: ["#0297e2", "#4dc0f5", "#b2e4fb"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataLazer = {
+  labels: ["Entretenimento", "Hobby"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50],
+      backgroundColor: ["#f0a900", "#f9d371"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataAssinatura = {
+  labels: ["Streaming", "Academia", "Cursos", "Outros"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 240, 180],
+      backgroundColor: ["#b600de", "#e143f2", "#f3b8f8", "#fbe3fc"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+const dataPet = {
+  labels: ["Alimentação", "Banho/Tossa", "Saúde", "Outros"],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [300, 50, 240, 180],
+      backgroundColor: ["#c60068", "#ef2f89", "#f38cbb", "#fce3ef"],
+      hoverOffset: 4,
+    },
+  ],
+};
+
+new Chart(ctx, {
+  type: "pie",
+  data: dataPet,
+});

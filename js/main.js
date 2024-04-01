@@ -1,8 +1,9 @@
 "use strict";
-
+//Dados Moradia
 const btnMoradia = document.querySelector("#moradia .btn");
 let valoresMoradia = document.querySelectorAll("#moradia .campo input");
 let totalMoradia = document.querySelector("#moradia h1.total-moradia");
+let graficoMoradia = document.getElementById("grafico-moradia");
 let labelsMoradia = [
   "Aluguel/Financiamento",
   "IPTU",
@@ -21,46 +22,55 @@ let coresMoradia = [
   "#d7c1f9",
   "#f0e6fd",
 ];
-
+//Dados Alimentação
 const btnAlimentacao = document.querySelector("#alimentacao .btn");
 let valoresAlimentacao = document.querySelectorAll("#alimentacao .campo input");
 let totalAlimentacao = document.querySelector(
   "#alimentacao h1.total-alimentacao"
 );
+let graficoAlimentacao = document.getElementById("grafico-alimentacao");
 let labelsAlimentacao = ["Mercado", "Restaurante", "Delivery"];
 let coresAlimentacao = ["#f47340", "#f8ab8f", "#f9e9e6"];
-
+//Dados Saúde
 const btnSaude = document.querySelector("#saude .btn");
 let valoresSaude = document.querySelectorAll("#saude .campo input");
 let totalSaude = document.querySelector("#saude h1.total-saude");
-
+let graficoSaude = document.getElementById("grafico-saude");
+let labelsSaude = ["Farmácia", "Consultas Médicas", "Plano de Saúde"];
+let coresSaude = ["#3ccb4a", "#99e19a", "#e6f8e6"];
+//Dados Transporte
 const btnTransporte = document.querySelector("#transporte .btn");
 let valoresTransporte = document.querySelectorAll("#transporte .campo input");
 let totalTransporte = document.querySelector("#transporte h1.total-transporte");
-
+let graficoTransporte = document.getElementById("grafico-transporte");
+let labelsTransporte = ["Gasolina", "Público", "Uber"];
+let coresTransporte = ["#0297e2", "#4dc0f5", "#b2e4fb"];
+// Dados Lazer
 const btnLazer = document.querySelector("#lazer .btn");
 let valoresLazer = document.querySelectorAll("#lazer .campo input");
 let totalLazer = document.querySelector("#lazer h1.total-lazer");
-
+let graficoLazer = document.getElementById("grafico-lazer");
+let labelsLazer = ["Entretenimento", "Hobby"];
+let coresLazer = ["#f0a900", "#f9d371"];
+//Dados Assinaturas
 const btnAssinaturas = document.querySelector("#assinaturas .btn");
 let valoresAssinaturas = document.querySelectorAll("#assinaturas .campo input");
 let totalAssinaturas = document.querySelector(
   "#assinaturas h1.total-assinaturas"
 );
-
+let graficoAssinaturas = document.getElementById("grafico-assinaturas");
+let labelsAssinaturas = ["Streaming", "Academia", "Cursos", "Outros"];
+let coresAssinaturas = ["#b600de", "#e143f2", "#f3b8f8", "#fbe3fc"];
+//Dados Pet
 const btnPet = document.querySelector("#pet .btn");
 let valoresPet = document.querySelectorAll("#pet .campo input");
 let totalPet = document.querySelector("#pet h1.total-pet");
+let graficoPet = document.getElementById("grafico-pet");
+let labelsPet = ["Alimentação", "Banho/Tossa", "Saúde", "Outros"];
+let coresPet = ["#c60068", "#ef2f89", "#f38cbb", "#fce3ef"];
 
 //Selecionando os graficos
 let ctx = document.getElementById("myChart");
-let graficoMoradia = document.getElementById("grafico-moradia");
-let graficoAlimentacao = document.getElementById("grafico-alimentacao");
-let graficoSaude = document.getElementById("grafico-saude");
-let graficoTransporte = document.getElementById("grafico-transporte");
-let graficoLazer = document.getElementById("grafico-lazer");
-let graficoAssinaturas = document.getElementById("grafico-assinaturas");
-let graficoPet = document.getElementById("grafico-pet");
 
 let opcoesGrafico = {
   plugins: {
@@ -88,13 +98,43 @@ let opcoesGrafico = {
   },
 };
 
-let chartHome = new Chart(ctx, {
+let chartHome = new Chart(graficoMoradia, {
   type: "pie",
   data: [],
   options: opcoesGrafico,
 });
 
 let chartAlimentacao = new Chart(graficoAlimentacao, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartSaude = new Chart(graficoSaude, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartTransporte = new Chart(graficoTransporte, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartLazer = new Chart(graficoLazer, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartAssinaturas = new Chart(graficoAssinaturas, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartPet = new Chart(graficoPet, {
   type: "pie",
   data: [],
   options: opcoesGrafico,
@@ -117,7 +157,6 @@ const calcular = (
   listaValores,
   resultado,
   grafico,
-  titulo,
   rotulos,
   cores,
   chart
@@ -136,7 +175,7 @@ const calcular = (
       labels: rotulos,
       datasets: [
         {
-          label: titulo, //adicionar como parametro
+          label: "Preço",
           data: valores,
           backgroundColor: cores,
           hoverOffset: 4,
@@ -161,8 +200,7 @@ calcular(
   btnMoradia,
   valoresMoradia,
   totalMoradia,
-  ctx,
-  "Mora",
+  graficoMoradia,
   labelsMoradia,
   coresMoradia,
   chartHome
@@ -173,90 +211,57 @@ calcular(
   valoresAlimentacao,
   totalAlimentacao,
   graficoAlimentacao,
-  "Alimentação",
   labelsAlimentacao,
   coresAlimentacao,
   chartAlimentacao
 );
 //Calcular categoria Saúde
-calcular(btnSaude, valoresSaude, totalSaude);
+calcular(
+  btnSaude,
+  valoresSaude,
+  totalSaude,
+  graficoSaude,
+  labelsSaude,
+  coresSaude,
+  chartSaude
+);
 //Calcular categoria Transporte
-calcular(btnTransporte, valoresTransporte, totalTransporte);
+calcular(
+  btnTransporte,
+  valoresTransporte,
+  totalTransporte,
+  graficoTransporte,
+  labelsTransporte,
+  coresTransporte,
+  chartTransporte
+);
 //Calcular categoria Lazer
-calcular(btnLazer, valoresLazer, totalLazer);
+calcular(
+  btnLazer,
+  valoresLazer,
+  totalLazer,
+  graficoLazer,
+  labelsLazer,
+  coresLazer,
+  chartLazer
+);
 //Calcular categoria Assinaturas
-calcular(btnAssinaturas, valoresAssinaturas, totalAssinaturas);
+calcular(
+  btnAssinaturas,
+  valoresAssinaturas,
+  totalAssinaturas,
+  graficoAssinaturas,
+  labelsAssinaturas,
+  coresAssinaturas,
+  chartAssinaturas
+);
 //Calcular categoria Pet
-calcular(btnPet, valoresPet, totalPet);
-
-const dataAlimentacao = {
-  labels: ["Mercado", "Restaurante", "Delivery"],
-  datasets: [
-    {
-      label: "Alimentação",
-      data: [300, 50, 100],
-      backgroundColor: ["#f47340", "#f8ab8f", "#f9e9e6"],
-      hoverOffset: 4,
-    },
-  ],
-};
-
-const dataSaude = {
-  labels: ["Farmácia", "Consultas Médicas", "Plano de Saúde"],
-  datasets: [
-    {
-      label: "Saúde",
-      data: [300, 50, 100],
-      backgroundColor: ["#3ccb4a", "#99e19a", "#e6f8e6"],
-      hoverOffset: 4,
-    },
-  ],
-};
-
-const dataTransporte = {
-  labels: ["Gasolina", "Público", "Uber"],
-  datasets: [
-    {
-      label: "Transporte",
-      data: [300, 50, 100],
-      backgroundColor: ["#0297e2", "#4dc0f5", "#b2e4fb"],
-      hoverOffset: 4,
-    },
-  ],
-};
-
-const dataLazer = {
-  labels: ["Entretenimento", "Hobby"],
-  datasets: [
-    {
-      label: "Lazer",
-      data: [300, 50],
-      backgroundColor: ["#f0a900", "#f9d371"],
-      hoverOffset: 4,
-    },
-  ],
-};
-
-const dataAssinatura = {
-  labels: ["Streaming", "Academia", "Cursos", "Outros"],
-  datasets: [
-    {
-      label: "Assinaturas",
-      data: [300, 50, 240, 180],
-      backgroundColor: ["#b600de", "#e143f2", "#f3b8f8", "#fbe3fc"],
-      hoverOffset: 50,
-    },
-  ],
-};
-
-const dataPet = {
-  labels: ["Alimentação", "Banho/Tossa", "Saúde", "Outros"],
-  datasets: [
-    {
-      label: "Valor",
-      data: [300, 50, 240, 180],
-      backgroundColor: ["#c60068", "#ef2f89", "#f38cbb", "#fce3ef"],
-      hoverOffset: 50,
-    },
-  ],
-};
+calcular(
+  btnPet,
+  valoresPet,
+  totalPet,
+  graficoPet,
+  labelsPet,
+  coresPet,
+  chartPet
+);

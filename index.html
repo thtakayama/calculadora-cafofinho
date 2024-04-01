@@ -13,235 +13,276 @@
 
 <body>
   <main>
-    <h1 class="title">Calculadora Cafofinho</h1>
-    <p>
-      Coloque abaixo os seus gastos mensais para estimar seus gastos e se
-      planejar financeiramente antes de sair das casa dos pais.
-    </p>
-    <section id="moradia" class="categoria">
-      <h2 class="subtitle">Moradia:</h2>
+    <section class="about">
+      <h1 class="title">Calculadora Cafofinho</h1>
       <p>
-        Gastos relacionados a moradia como aluguel/financiamento, IPTU, água,
-        luz, gás e internet.
+        Coloque abaixo os seus gastos mensais para estimar seus gastos e se
+        planejar financeiramente.
       </p>
-      <form>
-        <div class="campo">
-          <label for="aluguel">Aluguel/financiamento</label>
-          <input type="number" id="aluguel" name="aluguel" value="0" />
-        </div>
-        <div class="campo">
-          <label for="iptu">IPTU</label>
-          <input type="number" id="iptu" name="iptu" value="0" />
-        </div>
-        <div class="campo">
-          <label for="condominio">Condomínio</label>
-          <input type="number" id="condominio" name="condominio" value="0" />
-        </div>
-        <div class="campo">
-          <label for="agua">Conta de Água</label>
-          <input type="number" id="agua" name="agua" value="0" />
-        </div>
-        <div class="campo">
-          <label for="luz">Conta de Luz</label>
-          <input type="number" id="luz" name="luz" value="0" />
-        </div>
-        <div class="campo">
-          <label for="gas">Conta de Gás</label>
-          <input type="number" id="gas" name="gas" value="0" />
-        </div>
-        <div class="campo">
-          <label for="internet">Conta da Internet</label>
-          <input type="number" id="internet" name="internet" value="0" />
-        </div>
-        <button class="btn" data-bg="roxa">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    </section>
+    <section id="moradia" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Moradia:</h2>
+        <p>
+          Gastos relacionados a moradia como aluguel/financiamento, IPTU, água,
+          luz, gás e internet.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="aluguel">Aluguel/financiamento</label>
+            <input type="number" id="aluguel" name="aluguel" value="0" />
+          </div>
+          <div class="campo">
+            <label for="iptu">IPTU</label>
+            <input type="number" id="iptu" name="iptu" value="0" />
+          </div>
+          <div class="campo">
+            <label for="condominio">Condomínio</label>
+            <input type="number" id="condominio" name="condominio" value="0" />
+          </div>
+          <div class="campo">
+            <label for="agua">Conta de Água</label>
+            <input type="number" id="agua" name="agua" value="0" />
+          </div>
+          <div class="campo">
+            <label for="luz">Conta de Luz</label>
+            <input type="number" id="luz" name="luz" value="0" />
+          </div>
+          <div class="campo">
+            <label for="gas">Conta de Gás</label>
+            <input type="number" id="gas" name="gas" value="0" />
+          </div>
+          <div class="campo">
+            <label for="internet">Conta da Internet</label>
+            <input type="number" id="internet" name="internet" value="0" />
+          </div>
+          <button class="btn" data-bg="roxa">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-moradia"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-moradia"></h1>
+          </div>
         </div>
       </div>
-    </section>
-    <section id="alimentacao" class="categoria">
-      <h2 class="subtitle">Alimentação:</h2>
-      <p>
-        Gastos relacionados a alimentação como mercado, restaurante e pedir delivery de comida.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="mercado">Mercado</label>
-          <input type="number" id="mercado" name="mercado" value="0" />
-        </div>
-        <div class="campo">
-          <label for="restaurante">Restaurante</label>
-          <input type="number" id="restaurante" name="restaurante" value="0" />
-        </div>
-        <div class="campo">
-          <label for="delivery">Delivery</label>
-          <input type="number" id="delivery" name="delivery" value="0" />
-        </div>
-        <button class="btn" data-bg="laranja">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
-        <div>
-          <h1 class="total-alimentacao"></h1>
-        </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Moradia</h2>
+        <canvas id="myChart"></canvas>
       </div>
     </section>
-    <section id="saude" class="categoria">
-      <h2 class="subtitle">Saúde:</h2>
-      <p>
-        Gastos relacionados a saúde como farmácia, consultas médicas e plano de saúde.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="farmacia">Farmácia</label>
-          <input type="number" id="farmacia" name="farmacia" value="0" />
-        </div>
-        <div class="campo">
-          <label for="consultas">Consultas Médicas</label>
-          <input type="number" id="consultas" name="consultas" value="0" />
-        </div>
-        <div class="campo">
-          <label for="plano-saude">Plano de Saúde</label>
-          <input type="number" id="plano-saude" name="plano-saude" value="0" />
-        </div>
-        <button class="btn" data-bg="verde">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    <section id="alimentacao" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Alimentação:</h2>
+        <p>
+          Gastos relacionados a alimentação como mercado, restaurante e pedir delivery de comida.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="mercado">Mercado</label>
+            <input type="number" id="mercado" name="mercado" value="0" />
+          </div>
+          <div class="campo">
+            <label for="restaurante">Restaurante</label>
+            <input type="number" id="restaurante" name="restaurante" value="0" />
+          </div>
+          <div class="campo">
+            <label for="delivery">Delivery</label>
+            <input type="number" id="delivery" name="delivery" value="0" />
+          </div>
+          <button class="btn" data-bg="laranja">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-saude"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-alimentacao"></h1>
+          </div>
         </div>
       </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Alimentação</h2>
+        <canvas id="grafico-alimentacao"></canvas>
+      </div>
     </section>
-
-    <section id="transporte" class="categoria">
-      <h2 class="subtitle">Transporte:</h2>
-      <p>
-        Gastos relacionados a transporte como gasolina, público e uber.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="gasolina">Gasolina</label>
-          <input type="number" id="gasolina" name="gasolina" value="0" />
-        </div>
-        <div class="campo">
-          <label for="publico">Público</label>
-          <input type="number" id="publico" name="publico" value="0" />
-        </div>
-        <div class="campo">
-          <label for="uber">Uber</label>
-          <input type="number" id="uber" name="uber" value="0" />
-        </div>
-        <button class="btn" data-bg="azul">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    <section id="saude" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Saúde:</h2>
+        <p>
+          Gastos relacionados a saúde como farmácia, consultas médicas e plano de saúde.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="farmacia">Farmácia</label>
+            <input type="number" id="farmacia" name="farmacia" value="0" />
+          </div>
+          <div class="campo">
+            <label for="consultas">Consultas Médicas</label>
+            <input type="number" id="consultas" name="consultas" value="0" />
+          </div>
+          <div class="campo">
+            <label for="plano-saude">Plano de Saúde</label>
+            <input type="number" id="plano-saude" name="plano-saude" value="0" />
+          </div>
+          <button class="btn" data-bg="verde">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-transporte"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-saude"></h1>
+          </div>
         </div>
+      </div>
+      </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Saúde</h2>
+        <canvas id="grafico-saude"></canvas>
       </div>
     </section>
 
-    <section id="lazer" class="categoria">
-      <h2 class="subtitle">Lazer:</h2>
-      <p>
-        Gastos relacionados a lazer como entretenimento(cinema, shows, museus) e hobbies.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="entretenimento">Entretenimento</label>
-          <input type="number" id="entretenimento" name="entretenimento" value="0" />
-        </div>
-        <div class="campo">
-          <label for="hobby">Hobby</label>
-          <input type="number" id="hobby" name="hobby" value="0" />
-        </div>
-        <button class="btn" data-bg="amarelo">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    <section id="transporte" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Transporte:</h2>
+        <p>
+          Gastos relacionados a transporte como gasolina, público e uber.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="gasolina">Gasolina</label>
+            <input type="number" id="gasolina" name="gasolina" value="0" />
+          </div>
+          <div class="campo">
+            <label for="publico">Público</label>
+            <input type="number" id="publico" name="publico" value="0" />
+          </div>
+          <div class="campo">
+            <label for="uber">Uber</label>
+            <input type="number" id="uber" name="uber" value="0" />
+          </div>
+          <button class="btn" data-bg="azul">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-lazer"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-transporte"></h1>
+          </div>
         </div>
+      </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Transporte</h2>
+        <canvas id="grafico-transporte"></canvas>
       </div>
     </section>
 
-    <section id="assinaturas" class="categoria">
-      <h2 class="subtitle">Assinaturas:</h2>
-      <p>
-        Gastos relacionados a Assinaturas como serviços de streaming(Netflix, Disney plus, etc), academia, cursos e
-        outros.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="streaming">Streaming</label>
-          <input type="number" id="streamin" name="streaming" value="0" />
-        </div>
-        <div class="campo">
-          <label for="academia">Academia</label>
-          <input type="number" id="academia" name="academia" value="0" />
-        </div>
-        <div class="campo">
-          <label for="cursos">Cursos</label>
-          <input type="number" id="cursos" name="cursos" value="0" />
-        </div>
-        <div class="campo">
-          <label for="outros-assinaturas">Outros</label>
-          <input type="number" id="outros-assinaturas" name="outros-assinaturas" value="0" />
-        </div>
-        <button class="btn" data-bg="lilas">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    <section id="lazer" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Lazer:</h2>
+        <p>
+          Gastos relacionados a lazer como entretenimento(cinema, shows, museus) e hobbies.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="entretenimento">Entretenimento</label>
+            <input type="number" id="entretenimento" name="entretenimento" value="0" />
+          </div>
+          <div class="campo">
+            <label for="hobby">Hobby</label>
+            <input type="number" id="hobby" name="hobby" value="0" />
+          </div>
+          <button class="btn" data-bg="amarelo">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-assinaturas"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-lazer"></h1>
+          </div>
         </div>
+      </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Lazer</h2>
+        <canvas id="grafico-lazer"></canvas>
       </div>
     </section>
 
-    <section id="pet" class="categoria">
-      <h2 class="subtitle">Pet:</h2>
-      <p>
-        Gastos relacionados ao seu Pet como alimentação(ração e petiscos), banho/tossa, saúde(vacinas, consultas e
-        exames) e outros.
-      </p>
-      <form>
-        <div class="campo">
-          <label for="alimentacao-pet">Alimentação</label>
-          <input type="number" id="alimentacao-pet" name="alimentacao-pet" value="0" />
-        </div>
-        <div class="campo">
-          <label for="banho">Banho/tossa</label>
-          <input type="number" id="banho" name="banho" value="0" />
-        </div>
-        <div class="campo">
-          <label for="saude-pet">Saúde</label>
-          <input type="number" id="saude-pet" name="saude-pet" value="0" />
-        </div>
-        <div class="campo">
-          <label for="outros-pet">Outros</label>
-          <input type="number" id="outros-pet" name="outros-pet" value="0" />
-        </div>
-        <button class="btn" data-bg="rosa">Calcular</button>
-      </form>
-      <div>
-        <h1>Total:</h1>
+    <section id="assinaturas" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Assinaturas:</h2>
+        <p>
+          Gastos relacionados a Assinaturas como serviços de streaming(Netflix, Disney plus, etc), academia, cursos e
+          outros.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="streaming">Streaming</label>
+            <input type="number" id="streamin" name="streaming" value="0" />
+          </div>
+          <div class="campo">
+            <label for="academia">Academia</label>
+            <input type="number" id="academia" name="academia" value="0" />
+          </div>
+          <div class="campo">
+            <label for="cursos">Cursos</label>
+            <input type="number" id="cursos" name="cursos" value="0" />
+          </div>
+          <div class="campo">
+            <label for="outros-assinaturas">Outros</label>
+            <input type="number" id="outros-assinaturas" name="outros-assinaturas" value="0" />
+          </div>
+          <button class="btn" data-bg="lilas">Calcular</button>
+        </form>
         <div>
-          <h1 class="total-pet"></h1>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-assinaturas"></h1>
+          </div>
         </div>
+      </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Assinaturas</h2>
+        <canvas id="grafico-assinaturas"></canvas>
+      </div>
+    </section>
+
+    <section id="pet" class="container">
+      <div class="categoria">
+        <h2 class="subtitle">Pet:</h2>
+        <p>
+          Gastos relacionados ao seu Pet como alimentação(ração e petiscos), banho/tossa, saúde(vacinas, consultas e
+          exames) e outros.
+        </p>
+        <form>
+          <div class="campo">
+            <label for="alimentacao-pet">Alimentação</label>
+            <input type="number" id="alimentacao-pet" name="alimentacao-pet" value="0" />
+          </div>
+          <div class="campo">
+            <label for="banho">Banho/tossa</label>
+            <input type="number" id="banho" name="banho" value="0" />
+          </div>
+          <div class="campo">
+            <label for="saude-pet">Saúde</label>
+            <input type="number" id="saude-pet" name="saude-pet" value="0" />
+          </div>
+          <div class="campo">
+            <label for="outros-pet">Outros</label>
+            <input type="number" id="outros-pet" name="outros-pet" value="0" />
+          </div>
+          <button class="btn" data-bg="rosa">Calcular</button>
+        </form>
+        <div>
+          <h1>Total:</h1>
+          <div>
+            <h1 class="total-pet"></h1>
+          </div>
+        </div>
+      </div>
+      <div data-container="grafico" class="grafico">
+        <h2>Gráfico Pet</h2>
+        <canvas id="grafico-pet"></canvas>
       </div>
     </section>
   </main>
-  <div data-container="grafico">
-    <canvas id="myChart"></canvas>
-  </div>
 
   <!--JS-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="./js/graficos.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

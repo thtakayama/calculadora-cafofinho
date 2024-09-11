@@ -69,6 +69,16 @@ let graficoPet = document.getElementById("grafico-pet");
 let labelsPet = ["Alimentação", "Banho/Tossa", "Saúde", "Outros"];
 let coresPet = ["#c60068", "#ef2f89", "#f38cbb", "#fce3ef"];
 
+let valoresCategorias = [
+  totalMoradia.innerHTML,
+  totalAlimentacao.innerHTML,
+  totalSaude.innerHTML,
+  totalTransporte.innerHTML,
+  totalLazer.innerHTML,
+  totalAssinaturas.innerHTML,
+  totalPet.innerHTML,
+];
+
 //Selecionando os graficos
 let ctx = document.getElementById("myChart");
 
@@ -171,6 +181,10 @@ const calcular = (
     //Substituir ponto por vírgula no total calculado acima
     adicionarVirgula(resultado, total);
 
+    let listaCategorias = valoresCategorias
+      .map((item) => Number(item))
+      .reduce((acc, cur) => cur + acc, 0);
+
     let dataGraficos = {
       labels: rotulos,
       datasets: [
@@ -265,3 +279,40 @@ calcular(
   coresPet,
   chartPet
 );
+//calcular total
+function resolveTotal() {
+  return new Promise((resolve) => {
+    let valorTotalMoradia;
+    let valorTotalAlimentacao;
+    let valorTotalSaude;
+    let valorTotalTransporte;
+    let valorTotalLazer;
+    let valorTotalAssinaturas;
+    let valorTotalPet;
+    let valorTotalContainer = document.querySelector('.total-absoluto');
+    totalMoradia.innerHTML !== "0" ? valorTotalMoradia = totalMoradia.innerHTML : valorTotalMoradia = "0,00";
+    totalAlimentacao.innerHTML !== "0" ? valorTotalAlimentacao = totalAlimentacao.innerHTML : valorTotalAlimentacao = "0,00";
+    totalSaude.innerHTML !== "0" ? valorTotalSaude = totalSaude.innerHTML : valorTotalSaude = "0,00";
+    totalTransporte.innerHTML !== "0" ? valorTotalTransporte = totalTransporte.innerHTML : valorTotalTransporte = "0,00";
+    totalLazer.innerHTML !== "0" ? valorTotalLazer = totalLazer.innerHTML : valorTotalLazer = "0,00";
+    totalAssinaturas.innerHTML !== "0" ? valorTotalAssinaturas = totalAssinaturas.innerHTML : valorTotalAssinaturas = "0,00";
+    totalPet.innerHTML !== "0" ? valorTotalPet = totalPet.innerHTML : valorTotalPet = "0,00";
+    const ajustarValor = (item) => {
+      return Number(item.replace(",", "."));
+    }
+    let valorTotal = ajustarValor(valorTotalMoradia) + ajustarValor(valorTotalAlimentacao) + ajustarValor(valorTotalSaude) + ajustarValor(valorTotalTransporte) + ajustarValor(valorTotalLazer) + ajustarValor(valorTotalAssinaturas) + ajustarValor(valorTotalPet);
+    resolve(valorTotalContainer.innerHTML = valorTotal.toFixed(2).replace(".", ","));
+  });
+}
+
+async function asyncCall() {
+  let result = await resolveTotal();
+}
+
+btnMoradia.addEventListener('click', asyncCall);
+btnAlimentacao.addEventListener('click', asyncCall);
+btnSaude.addEventListener('click', asyncCall);
+btnTransporte.addEventListener('click', asyncCall);
+btnLazer.addEventListener('click', asyncCall);
+btnAssinaturas.addEventListener('click', asyncCall);
+btnPet.addEventListener('click', asyncCall);

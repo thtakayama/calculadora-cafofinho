@@ -56,6 +56,11 @@ body {
   color: white;
 }
 
+[data-bg="iris"] {
+  background-image: linear-gradient(135deg, var(--cor-laranja), var(--cor-amarela),var(--cor-verde), var(--cor-azul), var(--cor-roxa), var(--cor-lilas), var(--cor-rosa));
+  color: white;
+}
+
 [data-container="grafico"] {
   max-width: 400px;
   margin: 0px auto;
@@ -265,4 +270,15 @@ label {
 
 #pet input {
   border-color: var(--cor-rosa);
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background: rgba(255,255,255,1);
+  width: 100%;
+  padding: 1rem 2rem;
 }

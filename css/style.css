@@ -57,8 +57,8 @@ body {
 }
 
 [data-bg="iris"] {
-  background-image: linear-gradient(135deg, var(--cor-laranja), var(--cor-amarela),var(--cor-verde), var(--cor-azul), var(--cor-roxa), var(--cor-lilas), var(--cor-rosa));
-  color: white;
+  background-image: linear-gradient(135deg, var(--cor-verde-claro), var(--cor-azul-claro));
+  color: black;
 }
 
 [data-container="grafico"] {
@@ -133,6 +133,10 @@ p {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 1s);
   border-radius: 1rem;
+}
+
+#total .grafico {
+  margin-bottom: 8rem;
 }
 
 form {
@@ -281,4 +285,8 @@ label {
   background: rgba(255,255,255,1);
   width: 100%;
   padding: 1rem 2rem;
+}
+
+.total-container a {
+  text-decoration: none;
 }

@@ -69,6 +69,11 @@ let graficoPet = document.getElementById("grafico-pet");
 let labelsPet = ["Alimentação", "Banho/Tossa", "Saúde", "Outros"];
 let coresPet = ["#c60068", "#ef2f89", "#f38cbb", "#fce3ef"];
 
+//Dados Total
+let graficoTotal = document.getElementById("grafico-total");
+let labelsTotal = ["Moradia", "Alimentação", "Saúde", "Transporte", "Lazer", "Assinaturas", "Pet"];
+let coresTotal = ["#8843f2", "#f47340", "#3ccb4b", "#0297e2", "#f9d371", "#e143f2", "#ef2f88"];
+
 let valoresCategorias = [
   totalMoradia.innerHTML,
   totalAlimentacao.innerHTML,
@@ -145,6 +150,12 @@ let chartAssinaturas = new Chart(graficoAssinaturas, {
 });
 
 let chartPet = new Chart(graficoPet, {
+  type: "pie",
+  data: [],
+  options: opcoesGrafico,
+});
+
+let chartTotal = new Chart(graficoTotal, {
   type: "pie",
   data: [],
   options: opcoesGrafico,
@@ -301,6 +312,31 @@ function resolveTotal() {
       return Number(item.replace(",", "."));
     }
     let valorTotal = ajustarValor(valorTotalMoradia) + ajustarValor(valorTotalAlimentacao) + ajustarValor(valorTotalSaude) + ajustarValor(valorTotalTransporte) + ajustarValor(valorTotalLazer) + ajustarValor(valorTotalAssinaturas) + ajustarValor(valorTotalPet);
+
+    let valoresTotal = [ajustarValor(valorTotalMoradia), ajustarValor(valorTotalAlimentacao), ajustarValor(valorTotalSaude), ajustarValor(valorTotalTransporte), ajustarValor(valorTotalLazer), ajustarValor(valorTotalAssinaturas), ajustarValor(valorTotalPet)];
+    console.log(valoresTotal);
+
+    let dataGraficos = {
+      labels: labelsTotal,
+      datasets: [
+        {
+          label: "Preço",
+          data: valoresTotal,
+          backgroundColor: coresTotal,
+          hoverOffset: 4,
+        },
+      ],
+    };
+
+    if (chartTotal) {
+      chartTotal.destroy();
+    }
+
+    chartTotal = new Chart(graficoTotal, {
+      type: "pie",
+      data: dataGraficos,
+      options: opcoesGrafico,
+    });
     resolve(valorTotalContainer.innerHTML = valorTotal.toFixed(2).replace(".", ","));
   });
 }

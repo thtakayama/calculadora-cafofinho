@@ -196,12 +196,21 @@ const calcular = (
       .map((item) => Number(item))
       .reduce((acc, cur) => cur + acc, 0);
 
+      const calcularPorcentagem = (listaValores) => {
+        let listaPorcentagem = listaValores.map((item) => {
+          return Math.round((item * 100) / total);
+        });
+        return listaPorcentagem;
+      }
+
+      let porcentagem = calcularPorcentagem(valores);
+
     let dataGraficos = {
       labels: rotulos,
       datasets: [
         {
-          label: "Preço",
-          data: valores,
+          label: "Porcentagem(%)",
+          data: porcentagem,
           backgroundColor: cores,
           hoverOffset: 4,
         },
@@ -219,6 +228,17 @@ const calcular = (
     });
   });
 };
+
+let listaGastos = [64,38,17,13];
+
+const calcularPorcentagem = (listaValores) => {
+  let listaPorcentagem = listaValores.map((item) => {
+    return Math.round((item * 100) / 132);
+  });
+  return listaPorcentagem;
+}
+
+console.log(calcularPorcentagem(listaGastos));
 
 //Calcular categoria Moradia
 calcular(
@@ -314,14 +334,22 @@ function resolveTotal() {
     let valorTotal = ajustarValor(valorTotalMoradia) + ajustarValor(valorTotalAlimentacao) + ajustarValor(valorTotalSaude) + ajustarValor(valorTotalTransporte) + ajustarValor(valorTotalLazer) + ajustarValor(valorTotalAssinaturas) + ajustarValor(valorTotalPet);
 
     let valoresTotal = [ajustarValor(valorTotalMoradia), ajustarValor(valorTotalAlimentacao), ajustarValor(valorTotalSaude), ajustarValor(valorTotalTransporte), ajustarValor(valorTotalLazer), ajustarValor(valorTotalAssinaturas), ajustarValor(valorTotalPet)];
-    console.log(valoresTotal);
+    
+    const calcularPorcentagem = (listaValores) => {
+      let listaPorcentagem = listaValores.map((item) => {
+        return Math.round((item * 100) / valorTotal);
+      });
+      return listaPorcentagem;
+    }
+
+    let porcentagem = calcularPorcentagem(valoresTotal);
 
     let dataGraficos = {
       labels: labelsTotal,
       datasets: [
         {
-          label: "Preço",
-          data: valoresTotal,
+          label: "Porcentagem(%)",
+          data: porcentagem,
           backgroundColor: coresTotal,
           hoverOffset: 4,
         },

@@ -1,4 +1,49 @@
 "use strict";
+//Smooth scroll
+const menuNav = document.querySelector('.menu ul');
+
+menuNav.addEventListener('click', (e) => {
+  e.preventDefault();
+  if(e.target.classList.contains('menu_link')) {
+    const menuLinks = document.querySelectorAll('.menu_link');
+    menuLinks.forEach(link => {
+      link.classList.remove('active');
+      link.style.color='rgba(0,0,0,0.4)';
+    });
+    const id = e.target.getAttribute('href');
+    let curSection = document.querySelector(id);
+    e.target.classList.add('active');
+    e.target.style.color = `var(--cor-${curSection.querySelector('button').dataset.bg})`;
+    curSection.style.scrollMarginTop = '80px';
+    curSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+})
+
+const menuMobile = document.querySelector('.menu-mobile');
+
+menuMobile.addEventListener('click', (e) => {
+  e.preventDefault();
+  if(e.target.classList.contains('fa-solid')) {
+    const menuLinks = document.querySelectorAll('.fa-solid');
+    menuLinks.forEach(link => {
+      link.classList.remove('active');
+      link.style.color='rgba(0,0,0,0.4)';
+    });
+    const id = e.target.dataset.id;
+    let curSection = document.querySelector(id);
+    e.target.classList.add('active');
+    e.target.style.color = `var(--cor-${curSection.querySelector('button').dataset.bg})`;
+    curSection.style.scrollMarginTop = '80px';
+    curSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+})
+
 //Dados Moradia
 const btnMoradia = document.querySelector("#moradia .btn");
 let valoresMoradia = document.querySelectorAll("#moradia .campo input");
@@ -95,6 +140,8 @@ let opcoesGrafico = {
       align: "start",
       labels: {
         color: "rgb(0, 0, 0)",
+        borderColor: "rgb(0, 0, 0)",
+        borderWidth: 10,
         boxWidth: 10,
         boxHeight: 10,
         font: {
@@ -108,9 +155,10 @@ let opcoesGrafico = {
   },
   layout: {
     padding: {
-      top: 20,
+      top: 0,
     },
   },
+  responsive: true,
 };
 
 let chartHome = new Chart(graficoMoradia, {
@@ -164,13 +212,17 @@ let chartTotal = new Chart(graficoTotal, {
 const listar = (lista) => {
   let valores = [];
   lista.forEach((item) => {
-    valores.push(Number(item.value));
+    valores.push(Number(item.value.replace(/\./g, '').replace(',', '.')));
   });
   return valores;
 };
 
-const adicionarVirgula = (texto, valor) => {
-  texto.textContent = valor.toFixed(2).replace(".", ",");
+const formatarNumero = (texto, valor) => {
+  const options = { style: 'currency', currency: 'BRL' };
+  const numberFormat = new Intl.NumberFormat('pt-BR', options);
+  //texto.textContent = valor.toFixed(2).replace(".", ",");
+  texto.dataset.total = valor;
+  texto.textContent = numberFormat.format(valor);
 };
 
 const calcular = (
@@ -190,7 +242,7 @@ const calcular = (
     //Calcular o total da array acima
     let total = valores.reduce((acc, cur) => cur + acc, 0);
     //Substituir ponto por vírgula no total calculado acima
-    adicionarVirgula(resultado, total);
+    formatarNumero(resultado, total);
 
     let listaCategorias = valoresCategorias
       .map((item) => Number(item))
@@ -229,16 +281,12 @@ const calcular = (
   });
 };
 
-let listaGastos = [64,38,17,13];
-
 const calcularPorcentagem = (listaValores) => {
   let listaPorcentagem = listaValores.map((item) => {
     return Math.round((item * 100) / 132);
   });
   return listaPorcentagem;
 }
-
-console.log(calcularPorcentagem(listaGastos));
 
 //Calcular categoria Moradia
 calcular(
@@ -313,31 +361,13 @@ calcular(
 //calcular total
 function resolveTotal() {
   return new Promise((resolve) => {
-    let valorTotalMoradia;
-    let valorTotalAlimentacao;
-    let valorTotalSaude;
-    let valorTotalTransporte;
-    let valorTotalLazer;
-    let valorTotalAssinaturas;
-    let valorTotalPet;
     let valorTotalContainer = document.querySelector('.total-absoluto');
-    totalMoradia.innerHTML !== "0" ? valorTotalMoradia = totalMoradia.innerHTML : valorTotalMoradia = "0,00";
-    totalAlimentacao.innerHTML !== "0" ? valorTotalAlimentacao = totalAlimentacao.innerHTML : valorTotalAlimentacao = "0,00";
-    totalSaude.innerHTML !== "0" ? valorTotalSaude = totalSaude.innerHTML : valorTotalSaude = "0,00";
-    totalTransporte.innerHTML !== "0" ? valorTotalTransporte = totalTransporte.innerHTML : valorTotalTransporte = "0,00";
-    totalLazer.innerHTML !== "0" ? valorTotalLazer = totalLazer.innerHTML : valorTotalLazer = "0,00";
-    totalAssinaturas.innerHTML !== "0" ? valorTotalAssinaturas = totalAssinaturas.innerHTML : valorTotalAssinaturas = "0,00";
-    totalPet.innerHTML !== "0" ? valorTotalPet = totalPet.innerHTML : valorTotalPet = "0,00";
-    const ajustarValor = (item) => {
-      return Number(item.replace(",", "."));
-    }
-    let valorTotal = ajustarValor(valorTotalMoradia) + ajustarValor(valorTotalAlimentacao) + ajustarValor(valorTotalSaude) + ajustarValor(valorTotalTransporte) + ajustarValor(valorTotalLazer) + ajustarValor(valorTotalAssinaturas) + ajustarValor(valorTotalPet);
 
-    let valoresTotal = [ajustarValor(valorTotalMoradia), ajustarValor(valorTotalAlimentacao), ajustarValor(valorTotalSaude), ajustarValor(valorTotalTransporte), ajustarValor(valorTotalLazer), ajustarValor(valorTotalAssinaturas), ajustarValor(valorTotalPet)];
+    let valoresTotal = [+totalMoradia.dataset.total, +totalAlimentacao.dataset.total, +totalSaude.dataset.total, +totalTransporte.dataset.total, +totalLazer.dataset.total, +totalAssinaturas.dataset.total, +totalPet.dataset.total];
     
     const calcularPorcentagem = (listaValores) => {
       let listaPorcentagem = listaValores.map((item) => {
-        return Math.round((item * 100) / valorTotal);
+        return Math.round((item * 100) / valoresTotal.reduce((cur, acc) => cur + acc, 0));
       });
       return listaPorcentagem;
     }
@@ -365,7 +395,8 @@ function resolveTotal() {
       data: dataGraficos,
       options: opcoesGrafico,
     });
-    resolve(valorTotalContainer.innerHTML = valorTotal.toFixed(2).replace(".", ","));
+    //resolve(valorTotalContainer.innerHTML = valorTotal.toFixed(2).replace(".", ","));
+    resolve(formatarNumero(valorTotalContainer, valoresTotal.reduce((cur, acc) => cur + acc, 0)));
   });
 }
 
@@ -380,3 +411,14 @@ btnTransporte.addEventListener('click', asyncCall);
 btnLazer.addEventListener('click', asyncCall);
 btnAssinaturas.addEventListener('click', asyncCall);
 btnPet.addEventListener('click', asyncCall);
+
+const btnTotal = document.querySelector('.btn-total');
+const btnFecharModal = document.querySelector('.modal-fechar');
+const modal = document.querySelector('.modal');
+btnTotal.addEventListener('click', () => {
+  modal.classList.toggle('active');
+})
+
+btnFecharModal.addEventListener('click', () => {
+  modal.classList.remove('active');
+})

@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora Cafofinho</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <script src="https://kit.fontawesome.com/dc5395250d.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
@@ -12,6 +14,38 @@
 </head>
 
 <body>
+  <header>
+    <nav class="menu">
+      <ul>
+        <li><a class="menu_link" href="#moradia">Moradia</a></li>
+        <li><a class="menu_link" href="#alimentacao">Alimentação</a></li>
+        <li><a class="menu_link" href="#saude">Saúde</a></li>
+        <li><a class="menu_link" href="#transporte">Transporte</a></li>
+        <li><a class="menu_link" href="#lazer">Lazer</a></li>
+        <li><a class="menu_link" href="#assinaturas">Assinaturas</a></li>
+        <li><a class="menu_link" href="#pet">Pet</a></li>
+      </ul>
+    </nav>
+    <nav class="menu-mobile">
+      <ul>
+        <li><a class="menu_link" href="#moradia" data-id="#moradia"><i class="fa-solid fa-house fa-1x"
+              data-id="#moradia"></i></a></li>
+        <li><a class="menu_link" href="#alimentacao" data-id="#alimentacao"><i class="fa-solid fa-utensils fa-1x"
+              data-id="#alimentacao"></i></a></li>
+        <li><a class="menu_link" href="#saude" data-id="#saude"><i class="fa-solid fa-stethoscope fa-1x"
+              data-id="#saude"></i></a></li>
+        <li><a class="menu_link" href="#transporte" data-id="#transporte"><i class="fa-solid fa-bus fa-1x"
+              data-id="#transporte"></i></i></a>
+        </li>
+        <li><a class="menu_link" href="#lazer" data-id="#lazer"><i class="fa-solid fa-icons fa-1x"
+              data-id="#lazer"></i></a></li>
+        <li><a class="menu_link" href="#assinaturas" data-id="#assinaturas"><i class="fa-solid fa-file-signature fa-1x"
+              data-id="#assinaturas"></i></a></li>
+        <li><a class="menu_link" href="#pet" data-id="#pet"><i class="fa-solid fa-paw fa-1x" data-id="#pet"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <main>
     <section class="about">
       <h1 class="title">Calculadora Cafofinho</h1>
@@ -30,38 +64,38 @@
         <form>
           <div class="campo">
             <label for="aluguel">Aluguel/financiamento</label>
-            <input type="number" id="aluguel" name="aluguel" value="0" />
+            <input type="text" id="aluguel" name="aluguel" value="0" />
           </div>
           <div class="campo">
             <label for="iptu">IPTU</label>
-            <input type="number" id="iptu" name="iptu" value="0" />
+            <input type="text" id="iptu" name="iptu" value="0" />
           </div>
           <div class="campo">
             <label for="condominio">Condomínio</label>
-            <input type="number" id="condominio" name="condominio" value="0" />
+            <input type="text" id="condominio" name="condominio" value="0" />
           </div>
           <div class="campo">
             <label for="agua">Conta de Água</label>
-            <input type="number" id="agua" name="agua" value="0" />
+            <input type="text" id="agua" name="agua" value="0" />
           </div>
           <div class="campo">
             <label for="luz">Conta de Luz</label>
-            <input type="number" id="luz" name="luz" value="0" />
+            <input type="text" id="luz" name="luz" value="0" />
           </div>
           <div class="campo">
             <label for="gas">Conta de Gás</label>
-            <input type="number" id="gas" name="gas" value="0" />
+            <input type="text" id="gas" name="gas" value="0" />
           </div>
           <div class="campo">
             <label for="internet">Conta da Internet</label>
-            <input type="number" id="internet" name="internet" value="0" />
+            <input type="text" id="internet" name="internet" value="0" />
           </div>
           <button class="btn" data-bg="roxa">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-moradia">0</h1>
+            <h1 class="total-moradia" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -79,22 +113,22 @@
         <form>
           <div class="campo">
             <label for="mercado">Mercado</label>
-            <input type="number" id="mercado" name="mercado" value="0" />
+            <input type="text" id="mercado" name="mercado" value="0" />
           </div>
           <div class="campo">
             <label for="restaurante">Restaurante</label>
-            <input type="number" id="restaurante" name="restaurante" value="0" />
+            <input type="text" id="restaurante" name="restaurante" value="0" />
           </div>
           <div class="campo">
             <label for="delivery">Delivery</label>
-            <input type="number" id="delivery" name="delivery" value="0" />
+            <input type="text" id="delivery" name="delivery" value="0" />
           </div>
           <button class="btn" data-bg="laranja">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-alimentacao">0</h1>
+            <h1 class="total-alimentacao" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -112,22 +146,22 @@
         <form>
           <div class="campo">
             <label for="farmacia">Farmácia</label>
-            <input type="number" id="farmacia" name="farmacia" value="0" />
+            <input type="text" id="farmacia" name="farmacia" value="0" />
           </div>
           <div class="campo">
             <label for="consultas">Consultas Médicas</label>
-            <input type="number" id="consultas" name="consultas" value="0" />
+            <input type="text" id="consultas" name="consultas" value="0" />
           </div>
           <div class="campo">
             <label for="plano-saude">Plano de Saúde</label>
-            <input type="number" id="plano-saude" name="plano-saude" value="0" />
+            <input type="text" id="plano-saude" name="plano-saude" value="0" />
           </div>
           <button class="btn" data-bg="verde">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-saude">0</h1>
+            <h1 class="total-saude" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -147,22 +181,22 @@
         <form>
           <div class="campo">
             <label for="gasolina">Gasolina</label>
-            <input type="number" id="gasolina" name="gasolina" value="0" />
+            <input type="text" id="gasolina" name="gasolina" value="0" />
           </div>
           <div class="campo">
             <label for="publico">Público</label>
-            <input type="number" id="publico" name="publico" value="0" />
+            <input type="text" id="publico" name="publico" value="0" />
           </div>
           <div class="campo">
             <label for="uber">Uber</label>
-            <input type="number" id="uber" name="uber" value="0" />
+            <input type="text" id="uber" name="uber" value="0" />
           </div>
           <button class="btn" data-bg="azul">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-transporte">0</h1>
+            <h1 class="total-transporte" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -181,18 +215,18 @@
         <form>
           <div class="campo">
             <label for="entretenimento">Entretenimento</label>
-            <input type="number" id="entretenimento" name="entretenimento" value="0" />
+            <input type="text" id="entretenimento" name="entretenimento" value="0" />
           </div>
           <div class="campo">
             <label for="hobby">Hobby</label>
-            <input type="number" id="hobby" name="hobby" value="0" />
+            <input type="text" id="hobby" name="hobby" value="0" />
           </div>
-          <button class="btn" data-bg="amarelo">Calcular</button>
+          <button class="btn" data-bg="amarela">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-lazer">0</h1>
+            <h1 class="total-lazer" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -212,26 +246,26 @@
         <form>
           <div class="campo">
             <label for="streaming">Streaming</label>
-            <input type="number" id="streamin" name="streaming" value="0" />
+            <input type="text" id="streamin" name="streaming" value="0" />
           </div>
           <div class="campo">
             <label for="academia">Academia</label>
-            <input type="number" id="academia" name="academia" value="0" />
+            <input type="text" id="academia" name="academia" value="0" />
           </div>
           <div class="campo">
             <label for="cursos">Cursos</label>
-            <input type="number" id="cursos" name="cursos" value="0" />
+            <input type="text" id="cursos" name="cursos" value="0" />
           </div>
           <div class="campo">
             <label for="outros-assinaturas">Outros</label>
-            <input type="number" id="outros-assinaturas" name="outros-assinaturas" value="0" />
+            <input type="text" id="outros-assinaturas" name="outros-assinaturas" value="0" />
           </div>
           <button class="btn" data-bg="lilas">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-assinaturas">0</h1>
+            <h1 class="total-assinaturas" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -251,26 +285,26 @@
         <form>
           <div class="campo">
             <label for="alimentacao-pet">Alimentação</label>
-            <input type="number" id="alimentacao-pet" name="alimentacao-pet" value="0" />
+            <input type="text" id="alimentacao-pet" name="alimentacao-pet" value="0" />
           </div>
           <div class="campo">
             <label for="banho">Banho/tosa</label>
-            <input type="number" id="banho" name="banho" value="0" />
+            <input type="text" id="banho" name="banho" value="0" />
           </div>
           <div class="campo">
             <label for="saude-pet">Saúde</label>
-            <input type="number" id="saude-pet" name="saude-pet" value="0" />
+            <input type="text" id="saude-pet" name="saude-pet" value="0" />
           </div>
           <div class="campo">
             <label for="outros-pet">Outros</label>
-            <input type="number" id="outros-pet" name="outros-pet" value="0" />
+            <input type="text" id="outros-pet" name="outros-pet" value="0" />
           </div>
           <button class="btn" data-bg="rosa">Calcular</button>
         </form>
         <div>
           <h1>Total:</h1>
           <div>
-            <h1 class="total-pet">0</h1>
+            <h1 class="total-pet" data-total="0">0</h1>
           </div>
         </div>
       </div>
@@ -279,10 +313,10 @@
         <canvas id="grafico-pet"></canvas>
       </div>
     </section>
-    <section id="total" class="modal active">
+    <section id="total" class="modal">
       <div data-container="grafico" class="grafico grafico-total">
         <div class="modal-fechar">
-          <h3>X</h3>
+          <span></span>
         </div>
         <h2>Gráfico Total</h2>
         <canvas id="grafico-total"></canvas>
@@ -290,7 +324,7 @@
     </section>
     <section class="total-container">
       <h1>Total: <span class="total-absoluto">0,00</span></h1>
-      <a href="#total" class="btn" data-bg="iris">Ver gráfico</a>
+      <a href="#total" class="btn btn-total" data-bg="iris">Ver gráfico</a>
     </section>
   </main>
 
